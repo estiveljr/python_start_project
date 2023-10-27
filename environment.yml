@@ -5,3 +5,5 @@ dependencies:
  - numpy
  - pylint
  - pytest
+ - pytest-cov
+ - nbval

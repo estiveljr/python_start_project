@@ -10,7 +10,7 @@ lint:
 	pylint --disable=R,C src
 
 test:
-	# python -m pytest -vv --cov=myrepolib testes/*.py
-	# python -m pytest --nbval notebook.ipynb
+	python -m pytest -vv --cov=src/modules src/tests/*.py
+	python -m pytest --nbval notebook.ipynb
 
 all: install lint test
