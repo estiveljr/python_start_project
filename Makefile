@@ -1,5 +1,10 @@
 setup:
-	yes | conda update --all
+	ifeq ($(OS), Windows_NT)
+		echo y|conda update --all
+	else #linux or mac
+		yes | conda update --all
+endif
+
 	conda init --all
 	conda env create -n condaenv
 
