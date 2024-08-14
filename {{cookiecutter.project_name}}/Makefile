@@ -1,7 +1,14 @@
+# setting OS var for non windows systems
+ifndef OS
+	OS := $(shell uname -s)
+endif
+
+# printing basic info
 $(info shell: $(SHELL))
 $(info OS:    $(OS))
 $(info )
 
+# create env command for differents OS
 ifeq ($(OS), Windows_NT)
 	CREATE_ENV := echo y | conda update --all
 else #linux or mac
