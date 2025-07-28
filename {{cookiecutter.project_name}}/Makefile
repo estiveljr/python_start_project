@@ -8,12 +8,17 @@ $(info shell: $(SHELL))
 $(info OS:    $(OS))
 $(info )
 
-# create env command for differents OS
+# conda update for differents OS
 ifeq ($(OS), Windows_NT)
-	CREATE_ENV := echo y | conda update --all
+	CONDA_UPDATE := echo y | conda update --all
 else #linux or mac
-	CREATE_ENV := yes | conda update --all
+	CONDA_UPDATE := yes | conda update --all
 endif
+
+setup:
+	$(CONDA_UPDATE)
+	conda init --all
+	conda env create -n gpt_translate
 
 setup:
 	$(CREATE_ENV)
